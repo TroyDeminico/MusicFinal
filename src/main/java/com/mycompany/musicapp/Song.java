@@ -18,10 +18,16 @@ public class Song {
     public String getSongInfo(){
         return this.title + "~ " + this.artist.getName();
     }
+    
+    public String getSongLink(){
+        return this.link;
+    }
 //    
 //    public String getArtistName(){
 //        return this.artist.getName();
 //    }
+    
+   
     
     @Override
     public String toString(){

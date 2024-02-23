@@ -54,7 +54,6 @@ public class APISearch {
             if (Songs != null) {
                 for (Song song : Songs) {
                     System.out.println(song.getSongInfo()); // makes json a string
-                    Songs.get(0);
                 }
             } else {
                 System.out.println("No songs in the list");
@@ -76,6 +75,26 @@ public class APISearch {
 
             if (Songs != null) {
                     return (Songs.get(0).getSongInfo());
+                }
+             else {
+                return ("No song in the exist");
+            }
+            
+        //return null;
+     }
+    
+    public static String getSongLink(String songName){
+         
+            HttpResponse<String> response = makeRequest("/search", "?q=" + songName);
+            
+            if(response == null) return null;
+            
+            Gson gson = new Gson();
+            SongContainer sc = gson.fromJson(response.body(), SongContainer.class);
+            List<Song> Songs = sc.getSong();
+
+            if (Songs != null) {
+                    return (Songs.get(0).getSongLink());
                 }
              else {
                 return ("No song in the exist");
