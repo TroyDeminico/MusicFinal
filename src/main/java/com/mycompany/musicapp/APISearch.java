@@ -22,6 +22,7 @@ import java.net.http.HttpResponse;
  */
 public class APISearch {
     private static final String root = "https://deezerdevs-deezer.p.rapidapi.com";
+    
     private static HttpResponse<String> makeRequest(String fx, String query) {
         try {
             HttpRequest request = HttpRequest.newBuilder()

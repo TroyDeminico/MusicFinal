@@ -25,12 +25,38 @@ public class Playlist {
         this.songs.remove(i);
     }
     
+    public String get(int i){
+        String song = this.songs.get(i);
+        return song;
+    }
+    
+    public int getSize(){
+        return this.songs.size();
+    }
+    
+    
+    
+//    public void removeSong(String name){
+//        int i = 0;
+//        for (String aString : this.songs){
+//            System.out.println(aString);
+//            System.out.println(name);
+//            if (name == aString){
+//                this.songs.remove(i);
+//            }
+//            i++;
+//        }
+//    }
+            
     @Override
     public String toString(){
         String SongsListOutput = "";
+        int index = 0;
         for (String aString : this.songs){
-            SongsListOutput += "\n" + aString;
+            index += 1;
+            SongsListOutput += "\n" + Integer.toString(index) + ". " + aString;
         }
         return SongsListOutput;
     }
+
 }
