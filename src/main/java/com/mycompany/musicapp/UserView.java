@@ -52,7 +52,7 @@ public class UserView extends javax.swing.JFrame {
         btnListen = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         songNumber = new javax.swing.JTextField();
-        songListen = new javax.swing.JTextField();
+        songListenNum = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTxtAreaFav = new javax.swing.JTextArea();
         btnAddFav = new javax.swing.JButton();
@@ -103,10 +103,10 @@ public class UserView extends javax.swing.JFrame {
             }
         });
 
-        songListen.setText("Song #");
-        songListen.addActionListener(new java.awt.event.ActionListener() {
+        songListenNum.setText("Song #");
+        songListenNum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                songListenActionPerformed(evt);
+                songListenNumActionPerformed(evt);
             }
         });
 
@@ -160,7 +160,7 @@ public class UserView extends javax.swing.JFrame {
                                 .addComponent(btnArtist)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(songListen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(songListenNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnListen)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,7 +204,7 @@ public class UserView extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(ArtistName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
-                .addComponent(songListen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(songListenNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
@@ -245,15 +245,16 @@ public class UserView extends javax.swing.JFrame {
             request = request.replace(" ", "%20");
                     }
         openWebpage(APISearch.getSongLink(request));
+        
     }//GEN-LAST:event_btnListenActionPerformed
 
     private void songNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_songNumberActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_songNumberActionPerformed
 
-    private void songListenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_songListenActionPerformed
+    private void songListenNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_songListenNumActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_songListenActionPerformed
+    }//GEN-LAST:event_songListenNumActionPerformed
 
     private void btnAddFavActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFavActionPerformed
         String number = songNumber.getText();
@@ -330,7 +331,7 @@ public class UserView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextArea jTxtAreaFav;
     private javax.swing.JTextArea jTxtAreaPList;
-    private javax.swing.JTextField songListen;
+    private javax.swing.JTextField songListenNum;
     private javax.swing.JTextField songName;
     private javax.swing.JTextField songNumber;
     // End of variables declaration//GEN-END:variables
