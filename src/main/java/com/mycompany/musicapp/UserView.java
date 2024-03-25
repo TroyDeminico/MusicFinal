@@ -17,6 +17,8 @@ public class UserView extends javax.swing.JFrame {
     
     Playlist userPlaylist = new Playlist();
     Playlist favPlaylist = new Playlist();
+    Playlist userLinks = new Playlist();
+    Playlist favLinks = new Playlist();
     
     private static void openWebpage(String url) {
         try {
@@ -59,6 +61,7 @@ public class UserView extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         ArtistName = new javax.swing.JTextField();
         btnArtist = new javax.swing.JButton();
+        jBtnGenre = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
@@ -138,6 +141,13 @@ public class UserView extends javax.swing.JFrame {
             }
         });
 
+        jBtnGenre.setText("Genre");
+        jBtnGenre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnGenreActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -177,7 +187,9 @@ public class UserView extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(74, 74, 74)
-                        .addComponent(btnAddFav, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jBtnGenre)
+                            .addComponent(btnAddFav, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -204,7 +216,9 @@ public class UserView extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(ArtistName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
-                .addComponent(songListenNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(songListenNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBtnGenre))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
@@ -224,10 +238,12 @@ public class UserView extends javax.swing.JFrame {
             request = request.replace(" ", "%20");
                     }
         APISearch.searchSong(request);
-        String neww = APISearch.getFirstSongInfo(request);
-        //jTextArea1.setText(APISearch.getFirstSongInfo(request));
-        userPlaylist.addSong(neww);
-        
+        String newSong = APISearch.getFirstSongInfo(request); 
+        userPlaylist.addSong(newSong);
+        // Create a list with the links to the added songs
+        String newLink = APISearch.getSongLink(request);
+        userLinks.addSong(newLink);
+       
         jTxtAreaPList.setText(userPlaylist.toString());
         
     }//GEN-LAST:event_btnAddActionPerformed
@@ -235,16 +251,21 @@ public class UserView extends javax.swing.JFrame {
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         String number = songNumber.getText();
         userPlaylist.removeSong(Integer.valueOf(number)-1);
+        userLinks.removeSong(Integer.valueOf(number)-1);
         jTxtAreaPList.setText(userPlaylist.toString());
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnListenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListenActionPerformed
-        String request = songName.getText();
-        boolean hasSpace = request.contains(" ");
-        if (hasSpace) {
-            request = request.replace(" ", "%20");
-                    }
-        openWebpage(APISearch.getSongLink(request));
+//        String request = songName.getText();
+//        boolean hasSpace = request.contains(" ");
+//        if (hasSpace) {
+//            request = request.replace(" ", "%20");
+//                    }
+//        openWebpage(APISearch.getSongLink(request));
+//        
+
+        String number = songNumber.getText();
+        openWebpage(userLinks.get(Integer.valueOf(number)-1));
         
     }//GEN-LAST:event_btnListenActionPerformed
 
@@ -274,11 +295,26 @@ public class UserView extends javax.swing.JFrame {
     }//GEN-LAST:event_ArtistNameActionPerformed
 
     private void btnArtistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArtistActionPerformed
-        // 246791
-        APISearch.getArtist("Future");
+       APISearch.getArtist("Drake");
         
         
     }//GEN-LAST:event_btnArtistActionPerformed
+
+    private void jBtnGenreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGenreActionPerformed
+        String request = songName.getText();
+        boolean hasSpace = request.contains(" ");
+        if (hasSpace) {
+            request = request.replace(" ", "%20");
+                    }
+        APISearch.searchGenre(request);
+        String newSong = APISearch.getRandomSongInfo(request); 
+        userPlaylist.addSong(newSong);
+        // Create a list with the links to the added songs
+        String newLink = APISearch.getSongLink(request);
+        userLinks.addSong(newLink);
+       
+        jTxtAreaPList.setText(userPlaylist.toString());
+    }//GEN-LAST:event_jBtnGenreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -323,6 +359,7 @@ public class UserView extends javax.swing.JFrame {
     private javax.swing.JButton btnArtist;
     private javax.swing.JButton btnListen;
     private javax.swing.JButton btnRemove;
+    private javax.swing.JButton jBtnGenre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
