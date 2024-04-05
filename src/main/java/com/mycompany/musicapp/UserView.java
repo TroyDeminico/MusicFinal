@@ -19,6 +19,8 @@ public class UserView extends javax.swing.JFrame {
     Playlist favPlaylist = new Playlist();
     Playlist userLinks = new Playlist();
     Playlist favLinks = new Playlist();
+    Playlist Artist = new Playlist();
+    Playlist userImgs = new Playlist();
     
     private static void openWebpage(String url) {
         try {
@@ -62,6 +64,8 @@ public class UserView extends javax.swing.JFrame {
         ArtistName = new javax.swing.JTextField();
         btnArtist = new javax.swing.JButton();
         jBtnGenre = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTxtAreaArtist = new javax.swing.JTextArea();
 
         jTextField1.setText("jTextField1");
 
@@ -148,6 +152,11 @@ public class UserView extends javax.swing.JFrame {
             }
         });
 
+        jTxtAreaArtist.setEditable(false);
+        jTxtAreaArtist.setColumns(20);
+        jTxtAreaArtist.setRows(5);
+        jScrollPane3.setViewportView(jTxtAreaArtist);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -189,7 +198,10 @@ public class UserView extends javax.swing.JFrame {
                         .addGap(74, 74, 74)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jBtnGenre)
-                            .addComponent(btnAddFav, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnAddFav, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -200,7 +212,10 @@ public class UserView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(32, 32, 32)
@@ -237,14 +252,17 @@ public class UserView extends javax.swing.JFrame {
         if (hasSpace) {
             request = request.replace(" ", "%20");
                     }
-        APISearch.searchSong(request);
+        JOptionPane.showMessageDialog(null, APISearch.searchSong(request), "Invalid", JOptionPane.ERROR_MESSAGE);
         String newSong = APISearch.getFirstSongInfo(request); 
         userPlaylist.addSong(newSong);
         // Create a list with the links to the added songs
         String newLink = APISearch.getSongLink(request);
         userLinks.addSong(newLink);
+        
+        String newImg = APISearch.getSongImg(request);
+        userImgs.addSong(newImg);
        
-        jTxtAreaPList.setText(userPlaylist.toString());
+        jTxtAreaPList.setText(userImgs.toString());
         
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -365,7 +383,9 @@ public class UserView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextArea jTxtAreaArtist;
     private javax.swing.JTextArea jTxtAreaFav;
     private javax.swing.JTextArea jTxtAreaPList;
     private javax.swing.JTextField songListenNum;

@@ -105,6 +105,26 @@ public class APISearch {
         //return null;
      }
     
+    public static String getSongImg(String songName){
+         
+            HttpResponse<String> response = makeRequest("/search", "?q=" + songName);
+            
+            if(response == null) return null;
+            
+            Gson gson = new Gson();
+            SongContainer sc = gson.fromJson(response.body(), SongContainer.class);
+            List<Song> Songs = sc.getSong();
+
+            if (Songs != null) {
+                    return (Songs.get(0).getSongImg());
+                }
+             else {
+                return ("No song in the exist");
+            }
+            
+        //return null;
+     }
+    
     
     public static Artist getArtist(String artistName){
          
@@ -190,6 +210,10 @@ public class APISearch {
 //        //return null;
 //     }
     
+//    public static String getRandomWord(){
+//        
+//    }
+//    
 }
 
 

@@ -4,26 +4,21 @@
  */
 package com.mycompany.musicapp;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author troydeminico
  */
-public class Artist {
-    private int id;
-    private String name;
+public class ArtistList {
+    private ArrayList<Integer> artistID;
     
-    
-    @Override
-    public String toString(){
-        return id + ", " + name;
+    public ArtistList(){
+        this.artistID = new ArrayList<Integer>();
     }
     
-    public int getID(){
-        return id;
-    }
-    
-    public String getName(){
-        return name;
+    public void addSong(int ID){
+        this.artistID.add(ID);
     }
     
 }

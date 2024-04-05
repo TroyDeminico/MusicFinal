@@ -13,6 +13,7 @@ public class Song {
     private Artist artist;
     private String link; 
     private int duration;
+    private String md5_image;
     
     
     public String getSongInfo(){
@@ -22,11 +23,19 @@ public class Song {
     public String getSongLink(){
         return this.link;
     }
-//    
-//    public String getArtistName(){
-//        return this.artist.getName();
-//    }
     
+     public String getSongImg(){
+        return this.md5_image;
+    }
+     
+     public int getArtistID(){
+         return this.artist.getID();
+     }
+//    
+//    public String getArtistInfo(){
+//        return this.artist.toString();
+//    }
+//    
    
     
     @Override
