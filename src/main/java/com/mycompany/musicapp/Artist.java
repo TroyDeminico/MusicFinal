@@ -18,6 +18,7 @@ public class Artist {
     private int id;
     private String name;
     private String picture_big;
+    private int count = 0; 
     
     
     @Override
@@ -35,11 +36,13 @@ public class Artist {
     public ImageIcon getImage(){
         try {
             BufferedImage bi = ImageIO.read(new URL(picture_big));      
-            ImageIcon ii = new ImageIcon(bi.getScaledInstance(bi.getWidth() / 4, bi.getHeight() / 4, BufferedImage.SCALE_SMOOTH));
+            ImageIcon ii = new ImageIcon(bi.getScaledInstance(bi.getWidth() / 3, bi.getHeight() / 3, BufferedImage.SCALE_SMOOTH));
             return ii;
         } catch (IOException ex) {
 //            Logger.getLogger(Artist.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
+    
+    
 }

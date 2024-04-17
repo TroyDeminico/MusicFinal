@@ -20,6 +20,10 @@ public class Song {
         return this.title + "~ " + this.artist.getName();
     }
     
+    public String getArtistName(){
+        return this.artist.getName();
+    }
+    
     public String getSongLink(){
         return this.link;
     }
