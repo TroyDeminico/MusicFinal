@@ -34,19 +34,6 @@ public class Playlist {
         return this.songs.size();
     }
     
-    
-    
-//    public void removeSong(String name){
-//        int i = 0;
-//        for (String aString : this.songs){
-//            System.out.println(aString);
-//            System.out.println(name);
-//            if (name == aString){
-//                this.songs.remove(i);
-//            }
-//            i++;
-//        }
-//    }
             
     @Override
     public String toString(){
@@ -59,4 +46,17 @@ public class Playlist {
         return SongsListOutput;
     }
 
+    public int compareID(String newID){
+        int index = 0;
+        if (!this.songs.isEmpty() && this.songs.size() > 0 ){
+            for (String aString : this.songs){
+                if (newID.equals(aString))
+                    return index;
+                else 
+                    index += 1;    
+            }
+            return -1;
+        }
+        return -1;
 }
+    }

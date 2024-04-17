@@ -28,15 +28,18 @@ public class Song {
         return this.md5_image;
     }
      
-     public int getArtistID(){
-         return this.artist.getID();
+     public String getArtistID(){
+        String ID = Integer.toString(this.artist.getID());
+        return ID;
      }
 //    
 //    public String getArtistInfo(){
 //        return this.artist.toString();
 //    }
 //    
-   
+   public Artist getArtist(){
+       return artist;
+   }
     
     @Override
     public String toString(){

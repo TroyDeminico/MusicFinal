@@ -65,7 +65,7 @@ public class APISearch {
      }
     
     
-    public static String getFirstSongInfo(String songName){
+    public static Song getFirstSongInfo(String songName){
          
             HttpResponse<String> response = makeRequest("/search", "?q=" + songName);
             
@@ -76,10 +76,10 @@ public class APISearch {
             List<Song> Songs = sc.getSong();
 
             if (Songs != null) {
-                    return (Songs.get(0).getSongInfo());
+                    return (Songs.get(0));
                 }
              else {
-                return ("No song in the exist");
+                return null;
             }
             
         //return null;
@@ -125,6 +125,27 @@ public class APISearch {
         //return null;
      }
     
+    
+    public static Song getFirstSongArtistInfo(String songName){
+         
+            HttpResponse<String> response = makeRequest("/search", "?q=" + songName);
+            
+            if(response == null) return null;
+            
+            Gson gson = new Gson();
+            SongContainer sc = gson.fromJson(response.body(), SongContainer.class);
+            List<Song> Songs = sc.getSong();
+
+            if (Songs != null) {
+                    return (Songs.get(0)); //.getArtistID()
+                }
+             else {
+//                return ("No song in the exist");
+                return null;
+            }
+            
+        //return null;
+     }
     
     public static Artist getArtist(String artistName){
          

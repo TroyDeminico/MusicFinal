@@ -4,6 +4,12 @@
  */
 package com.mycompany.musicapp;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author troydeminico
@@ -11,6 +17,7 @@ package com.mycompany.musicapp;
 public class Artist {
     private int id;
     private String name;
+    private String picture_big;
     
     
     @Override
@@ -25,5 +32,14 @@ public class Artist {
     public String getName(){
         return name;
     }
-    
+    public ImageIcon getImage(){
+        try {
+            BufferedImage bi = ImageIO.read(new URL(picture_big));      
+            ImageIcon ii = new ImageIcon(bi.getScaledInstance(bi.getWidth() / 4, bi.getHeight() / 4, BufferedImage.SCALE_SMOOTH));
+            return ii;
+        } catch (IOException ex) {
+//            Logger.getLogger(Artist.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }
