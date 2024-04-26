@@ -64,16 +64,10 @@ public class UserView extends javax.swing.JFrame {
         ArtistName = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         songName = new javax.swing.JTextField();
-        btnArtist = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
-        songListenNum = new javax.swing.JTextField();
         btnAddFav = new javax.swing.JButton();
-        jBtnGenre = new javax.swing.JButton();
         btnListen = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTxtAreaFav = new javax.swing.JTextArea();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         FirstArtist = new javax.swing.JLabel();
@@ -82,253 +76,204 @@ public class UserView extends javax.swing.JFrame {
         jLabelFirst = new javax.swing.JLabel();
         jLabelSecond = new javax.swing.JLabel();
         jLabelThird = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTxtAreaFav = new javax.swing.JTextArea();
+        jLabel5 = new javax.swing.JLabel();
+        btnFavRemove = new javax.swing.JButton();
+        songFavNumber = new javax.swing.JTextField();
+        btnFavListen = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jTxtAreaPList.setEditable(false);
         jTxtAreaPList.setColumns(20);
         jTxtAreaPList.setRows(5);
         jScrollPane1.setViewportView(jTxtAreaPList);
+        jTxtAreaPList.getAccessibleContext().setAccessibleName("");
+        jTxtAreaPList.getAccessibleContext().setAccessibleDescription("");
 
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 261, 152));
+
+        btnRemove.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
         btnRemove.setText("Remove");
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveActionPerformed(evt);
             }
         });
+        jPanel1.add(btnRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 49, 79, -1));
 
+        jLabel2.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Song Number");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 9, 79, -1));
 
+        songNumber.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
         songNumber.setText("Song #");
         songNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 songNumberActionPerformed(evt);
             }
         });
+        jPanel1.add(songNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 6, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Artist");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 210, 40, -1));
 
+        ArtistName.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
         ArtistName.setText("Artist name");
         ArtistName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ArtistNameActionPerformed(evt);
             }
         });
+        jPanel1.add(ArtistName, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 207, -1, -1));
 
+        jLabel1.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Song");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 179, 64, -1));
 
+        songName.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
         songName.setText("Song name");
+        jPanel1.add(songName, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 176, -1, -1));
 
-        btnArtist.setText("Artist");
-        btnArtist.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnArtistActionPerformed(evt);
-            }
-        });
-
+        btnAdd.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
+        jPanel1.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 250, -1, -1));
 
-        songListenNum.setText("Song #");
-        songListenNum.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                songListenNumActionPerformed(evt);
-            }
-        });
-
+        btnAddFav.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
         btnAddFav.setText("Favorite");
         btnAddFav.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddFavActionPerformed(evt);
             }
         });
+        jPanel1.add(btnAddFav, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 49, 79, -1));
 
-        jBtnGenre.setText("Genre");
-        jBtnGenre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnGenreActionPerformed(evt);
-            }
-        });
-
+        btnListen.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
         btnListen.setText("Listen");
         btnListen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnListenActionPerformed(evt);
             }
         });
+        jPanel1.add(btnListen, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 83, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(songNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnAddFav, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(btnListen)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnAdd)
-                                .addGap(31, 31, 31)
-                                .addComponent(btnArtist))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(songName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ArtistName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(42, 42, 42)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jBtnGenre)
-                            .addComponent(songListenNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(93, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(songNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnRemove)
-                            .addComponent(btnAddFav))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnListen)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(songName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(ArtistName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBtnGenre))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdd)
-                    .addComponent(btnArtist)
-                    .addComponent(songListenNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16))
-        );
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/musicapp/musicback.jpg"))); // NOI18N
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 300));
 
         jTabbedPane1.addTab("Home", jPanel1);
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Top 3 Artist");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
+
+        FirstArtist.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(FirstArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 43, 147, 134));
+
+        SecondArtist.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(SecondArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 43, 147, 134));
+
+        ThirdArtist.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(ThirdArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 43, 147, 134));
+
+        jLabelFirst.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
+        jLabelFirst.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(jLabelFirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 195, 147, 28));
+
+        jLabelSecond.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
+        jLabelSecond.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(jLabelSecond, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 195, 147, 28));
+
+        jLabelThird.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
+        jLabelThird.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(jLabelThird, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 195, 147, 28));
+
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/musicapp/musicback.jpg"))); // NOI18N
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 0, 540, 300));
+
+        jTabbedPane1.addTab("Top Artist", jPanel3);
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTxtAreaFav.setEditable(false);
         jTxtAreaFav.setColumns(20);
         jTxtAreaFav.setRows(5);
         jScrollPane2.setViewportView(jTxtAreaFav);
 
-        jLabel5.setText("Favorite Songs");
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 26, 431, 259));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addContainerGap(105, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addGap(1, 1, 1)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jLabel5.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Favorite Songs");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
+
+        btnFavRemove.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
+        btnFavRemove.setText("Remove");
+        btnFavRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFavRemoveActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnFavRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(443, 82, 79, -1));
+
+        songFavNumber.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
+        songFavNumber.setText("Song #");
+        songFavNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                songFavNumberActionPerformed(evt);
+            }
+        });
+        jPanel2.add(songFavNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(443, 26, 80, -1));
+
+        btnFavListen.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
+        btnFavListen.setText("Listen");
+        btnFavListen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFavListenActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnFavListen, new org.netbeans.lib.awtextra.AbsoluteConstraints(443, 125, 79, -1));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/musicapp/musicback.jpg"))); // NOI18N
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 0, 540, 300));
 
         jTabbedPane1.addTab("Favorites", jPanel2);
-
-        jLabel4.setText("Top 3 Artist");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabelFirst, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                            .addComponent(FirstArtist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(44, 44, 44)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(SecondArtist, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                                .addComponent(ThirdArtist, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabelSecond, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelThird, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ThirdArtist, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SecondArtist, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FirstArtist, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelSecond, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelThird, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(64, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Top Artist", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
@@ -341,16 +286,16 @@ public class UserView extends javax.swing.JFrame {
             request = request.replace(" ", "%20");
                     }
        
-        Song s = APISearch.getFirstSongInfo(request); 
-        mySongs.add(s);
+        Song fullSong = APISearch.getFirstSongInfo(request); 
+        mySongs.add(fullSong);
         
-        String newSong = s.getSongInfo();
+        String newSong = fullSong.getSongInfo();
         userPlaylist.addSong(newSong);
         
         // Create a list with the links to the added songs
 //        String newLink = APISearch.getSongLink(request);
-        String newLink = s.getSongLink();
-        String newImg = s.getSongImg();
+        String newLink = fullSong.getSongLink();
+        String newImg = fullSong.getSongImg();
         
         userLinks.addSong(newLink);
         
@@ -362,7 +307,7 @@ public class UserView extends javax.swing.JFrame {
         jTxtAreaPList.setText(userPlaylist.toString());
         
 //        s = APISearch.getFirstSongArtistInfo(request);
-        String newID = s.getArtistID();
+        String newID = fullSong.getArtistID();
         
         int newCount = 1;
         int index = artistList.compareID(newID);
@@ -377,7 +322,7 @@ public class UserView extends javax.swing.JFrame {
         
         // Get the top 3
             // Set the labels accordingyly;
-        Artist a = s.getArtist();
+        Artist a = fullSong.getArtist();
         
 //        ImageIcon ii = mySongs.get(0).getArtist().getImage();
 //        ImageIcon ii2 = mySongs.get(1).getArtist().getImage();
@@ -419,17 +364,10 @@ public class UserView extends javax.swing.JFrame {
         userPlaylist.removeSong(Integer.valueOf(number)-1);
         userLinks.removeSong(Integer.valueOf(number)-1);
         jTxtAreaPList.setText(userPlaylist.toString());
+        
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnListenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListenActionPerformed
-//        String request = songName.getText();
-//        boolean hasSpace = request.contains(" ");
-//        if (hasSpace) {
-//            request = request.replace(" ", "%20");
-//                    }
-//        openWebpage(APISearch.getSongLink(request));
-//        
-
         String number = songNumber.getText();
         openWebpage(userLinks.get(Integer.valueOf(number)-1));
         
@@ -439,15 +377,16 @@ public class UserView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_songNumberActionPerformed
 
-    private void songListenNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_songListenNumActionPerformed
+    private void songFavNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_songFavNumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_songListenNumActionPerformed
+    }//GEN-LAST:event_songFavNumberActionPerformed
 
     private void btnAddFavActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFavActionPerformed
         String number = songNumber.getText();
         int number1 = Integer.valueOf(number)-1;
         if (number1 < userPlaylist.getSize() && number1 >= 0){
             favPlaylist.addSong(userPlaylist.get(number1));
+            favLinks.addSong(userLinks.get(number1));
             jTxtAreaFav.setText(favPlaylist.toString());
         }
         else{
@@ -460,27 +399,24 @@ public class UserView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ArtistNameActionPerformed
 
-    private void btnArtistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArtistActionPerformed
-       APISearch.getArtist("Drake");
-        
-        
-    }//GEN-LAST:event_btnArtistActionPerformed
-
-    private void jBtnGenreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGenreActionPerformed
-        String request = songName.getText();
-        boolean hasSpace = request.contains(" ");
-        if (hasSpace) {
-            request = request.replace(" ", "%20");
-                    }
-        APISearch.searchGenre(request);
-        String newSong = APISearch.getRandomSongInfo(request); 
-        userPlaylist.addSong(newSong);
-        // Create a list with the links to the added songs
-        String newLink = APISearch.getSongLink(request);
-        userLinks.addSong(newLink);
+    private void btnFavRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFavRemoveActionPerformed
+        String favNumber = songFavNumber.getText();
        
-        jTxtAreaPList.setText(userPlaylist.toString());
-    }//GEN-LAST:event_jBtnGenreActionPerformed
+        if (Integer.valueOf(favNumber)-1 < 0 || Integer.valueOf(favNumber) > favPlaylist.getSize()){
+            JOptionPane.showMessageDialog(null, "Invalid number", "Invalid", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            favPlaylist.removeSong(Integer.valueOf(favNumber)-1);
+            favLinks.removeSong(Integer.valueOf(favNumber)-1);
+            jTxtAreaFav.setText(favPlaylist.toString());
+        }
+            
+    }//GEN-LAST:event_btnFavRemoveActionPerformed
+
+    private void btnFavListenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFavListenActionPerformed
+        String favNumber = songFavNumber.getText();
+        openWebpage(favLinks.get(Integer.valueOf(favNumber)-1));
+    }//GEN-LAST:event_btnFavListenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -525,15 +461,18 @@ public class UserView extends javax.swing.JFrame {
     private javax.swing.JLabel ThirdArtist;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAddFav;
-    private javax.swing.JButton btnArtist;
+    private javax.swing.JButton btnFavListen;
+    private javax.swing.JButton btnFavRemove;
     private javax.swing.JButton btnListen;
     private javax.swing.JButton btnRemove;
-    private javax.swing.JButton jBtnGenre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabelFirst;
     private javax.swing.JLabel jLabelSecond;
     private javax.swing.JLabel jLabelThird;
@@ -546,7 +485,7 @@ public class UserView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextArea jTxtAreaFav;
     private javax.swing.JTextArea jTxtAreaPList;
-    private javax.swing.JTextField songListenNum;
+    private javax.swing.JTextField songFavNumber;
     private javax.swing.JTextField songName;
     private javax.swing.JTextField songNumber;
     // End of variables declaration//GEN-END:variables
