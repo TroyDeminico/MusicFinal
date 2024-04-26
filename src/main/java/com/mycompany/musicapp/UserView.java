@@ -67,7 +67,6 @@ public class UserView extends javax.swing.JFrame {
         btnAdd = new javax.swing.JButton();
         btnAddFav = new javax.swing.JButton();
         btnListen = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         FirstArtist = new javax.swing.JLabel();
@@ -76,7 +75,6 @@ public class UserView extends javax.swing.JFrame {
         jLabelFirst = new javax.swing.JLabel();
         jLabelSecond = new javax.swing.JLabel();
         jLabelThird = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTxtAreaFav = new javax.swing.JTextArea();
@@ -84,7 +82,6 @@ public class UserView extends javax.swing.JFrame {
         btnFavRemove = new javax.swing.JButton();
         songFavNumber = new javax.swing.JTextField();
         btnFavListen = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
@@ -174,9 +171,6 @@ public class UserView extends javax.swing.JFrame {
         });
         jPanel1.add(btnListen, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 83, -1, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/musicapp/musicback.jpg"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 300));
-
         jTabbedPane1.addTab("Home", jPanel1);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -206,10 +200,6 @@ public class UserView extends javax.swing.JFrame {
         jLabelThird.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
         jLabelThird.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.add(jLabelThird, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 195, 147, 28));
-
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/musicapp/musicback.jpg"))); // NOI18N
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 0, 540, 300));
 
         jTabbedPane1.addTab("Top Artist", jPanel3);
 
@@ -253,9 +243,6 @@ public class UserView extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnFavListen, new org.netbeans.lib.awtextra.AbsoluteConstraints(443, 125, 79, -1));
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/musicapp/musicback.jpg"))); // NOI18N
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 0, 540, 300));
 
         jTabbedPane1.addTab("Favorites", jPanel2);
 
@@ -470,9 +457,6 @@ public class UserView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabelFirst;
     private javax.swing.JLabel jLabelSecond;
     private javax.swing.JLabel jLabelThird;
