@@ -10,7 +10,7 @@ package com.mycompany.musicapp;
 public class MusicApp {
 
     public static void main(String[] args) {
-         APISearch.getFirstSongInfo("carnival");
-         APISearch.getArtist("/Drake");
+//         APISearch.getFirstSongInfo("carnival");
+//         APISearch.getArtist("/Drake");
     }
 }

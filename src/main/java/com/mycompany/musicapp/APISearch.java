@@ -15,7 +15,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Random;
+import java.util.ArrayList;
 
 /**
  *
@@ -43,7 +43,7 @@ public class APISearch {
         return null;
     }
 
-    public static Song searchSong(String songName){
+    public static List<String> searchSong(String songName){
          
             HttpResponse<String> response = makeRequest("/search", "?q=" + songName);
             
@@ -52,20 +52,23 @@ public class APISearch {
             Gson gson = new Gson();
             SongContainer sc = gson.fromJson(response.body(), SongContainer.class);
             List<Song> Songs = sc.getSong();
+            
+            List<String> resultList = new ArrayList<>();
 
             if (Songs != null) {
                 for (Song song : Songs) {
                     System.out.println(song.getSongInfo()); // makes json a string
+                     resultList.add(song.getSongInfo()+ "\n");
                 }
             } else {
                 System.out.println("No songs in the list");
             }
             
-        return null;
+        return resultList;
      }
     
     
-    public static Song getFirstSongInfo(String songName){
+    public static Song getSelectedSongInfo(String songName, int index){
          
             HttpResponse<String> response = makeRequest("/search", "?q=" + songName);
             
@@ -76,165 +79,12 @@ public class APISearch {
             List<Song> Songs = sc.getSong();
 
             if (Songs != null) {
-                    return (Songs.get(0));
+                    return (Songs.get(index));
                 }
              else {
                 return null;
             }
-            
-        //return null;
      }
-    
-    public static String getSongLink(String songName){
-         
-            HttpResponse<String> response = makeRequest("/search", "?q=" + songName);
-            
-            if(response == null) return null;
-            
-            Gson gson = new Gson();
-            SongContainer sc = gson.fromJson(response.body(), SongContainer.class);
-            List<Song> Songs = sc.getSong();
-
-            if (Songs != null) {
-                    return (Songs.get(0).getSongLink());
-                }
-             else {
-                return ("No song in the exist");
-            }
-            
-        //return null;
-     }
-    
-    public static String getSongImg(String songName){
-         
-            HttpResponse<String> response = makeRequest("/search", "?q=" + songName);
-            
-            if(response == null) return null;
-            
-            Gson gson = new Gson();
-            SongContainer sc = gson.fromJson(response.body(), SongContainer.class);
-            List<Song> Songs = sc.getSong();
-
-            if (Songs != null) {
-                    return (Songs.get(0).getSongImg());
-                }
-             else {
-                return ("No song in the exist");
-            }
-            
-        //return null;
-     }
-    
-    
-    public static Song getFirstSongArtistInfo(String songName){
-         
-            HttpResponse<String> response = makeRequest("/search", "?q=" + songName);
-            
-            if(response == null) return null;
-            
-            Gson gson = new Gson();
-            SongContainer sc = gson.fromJson(response.body(), SongContainer.class);
-            List<Song> Songs = sc.getSong();
-
-            if (Songs != null) {
-                    return (Songs.get(0)); //.getArtistID()
-                }
-             else {
-//                return ("No song in the exist");
-                return null;
-            }
-            
-        //return null;
-     }
-    
-    public static Artist getArtist(String artistName){
-         
-            HttpResponse<String> response = makeRequest("/artist/", artistName);
-            
-            if(response == null) return null;
-            
-            Gson gson = new Gson();
-            ArtistContainer ac = gson.fromJson(response.body(), ArtistContainer.class);
-            List<Artist> Artists = ac.getArtist();
-
-            if (Artists != null) {
-                for (Artist artist : Artists) {
-                    System.out.println(artist.getName()); // makes json a string
-                }
-            } else {
-                System.out.println("No artist exist");
-            }
-            
-        return null;
-     }
-    
-    
-    public static Song searchGenre(String genre){
-         
-            HttpResponse<String> response = makeRequest("/search/", genre);
-            
-            if(response == null) return null;
-            
-            Gson gson = new Gson();
-            SongContainer sc = gson.fromJson(response.body(), SongContainer.class);
-            List<Song> Songs = sc.getSong();
-
-            if (Songs != null) {
-                for (Song song : Songs) {
-                    System.out.println(song.getSongInfo()); // makes json a string
-                }
-            } else {
-                System.out.println("No songs in the list");
-            }
-            
-        return null;
-     }
-    
-    public static String getRandomSongInfo(String songName){
-         
-            HttpResponse<String> response = makeRequest("/search", "?q=" + songName);
-            
-            if(response == null) return null;
-            
-            Gson gson = new Gson();
-            SongContainer sc = gson.fromJson(response.body(), SongContainer.class);
-            List<Song> Songs = sc.getSong();          
-            Random random = new Random();
-            int randomNumber = random.nextInt(Songs.size());
-            if (Songs != null) {
-                    return (Songs.get(randomNumber).getSongInfo());
-                }
-             else {
-                return ("No song in the exist");
-            }
-            
-        //return null;
-     }
-    
-//    public static String getSongLink(String songName){
-//         
-//            HttpResponse<String> response = makeRequest("/search", "?q=" + songName);
-//            
-//            if(response == null) return null;
-//            
-//            Gson gson = new Gson();
-//            SongContainer sc = gson.fromJson(response.body(), SongContainer.class);
-//            List<Song> Songs = sc.getSong();
-//
-//            if (Songs != null) {
-//                    return (Songs.get(randomNumber).getSongLink());
-//                }
-//             else {
-//                return ("No song in the exist");
-//            }
-//            
-//        //return null;
-//     }
-    
-//    public static String getRandomWord(){
-//        
-//    }
-//    
 }
 
 
