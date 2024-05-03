@@ -59,4 +59,12 @@ public class Playlist {
         }
         return -1;
 }
+    
+    public void clear(){
+        this.songs.clear();
+    }
+    
+    public void addAll(ArrayList<String> tempArtistList) {
+    this.songs.addAll(tempArtistList);
+}
     }

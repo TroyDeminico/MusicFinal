@@ -25,12 +25,16 @@ public class UserView extends javax.swing.JFrame {
     Playlist favPlaylist = new Playlist();
     Playlist userLinks = new Playlist();
     Playlist favLinks = new Playlist();
-    Playlist artistList = new Playlist();
-    IntList artistCounts = new IntList();
-    Playlist userImgs = new Playlist();
+    Playlist fullArtistList = new Playlist();
+    
+    //Playlist favImgs = new Playlist();
     List testList = new ArrayList<String>();
     
-    ArrayList<Song> mySongs = new ArrayList<>();
+    //for top artist
+    Playlist namesList = new Playlist();
+    IntList artistCounts = new IntList();
+    Playlist artistList = new Playlist();
+    ArrayList<ImageIcon> favImgs = new ArrayList<>();
     
     private static void openWebpage(String url) {
         try {
@@ -47,6 +51,34 @@ public class UserView extends javax.swing.JFrame {
         }
         DefaultComboBoxModel aModel = new DefaultComboBoxModel<>(songs);
         jComboBox.setModel(aModel);
+    }
+    
+    private void reOrder(){
+        artistCounts.reorderListsFromGreatestToLeast(artistList, favImgs, namesList);
+        if (favImgs.size() == 1){
+            ImageIcon ii = favImgs.get(0);
+            FirstArtist.setIcon(ii);
+            jLabelFirst.setText(namesList.get(0));
+        }
+        else if (favImgs.size() == 2){
+            ImageIcon ii = favImgs.get(0);
+            FirstArtist.setIcon(ii);
+            jLabelFirst.setText(namesList.get(0));
+            ImageIcon ii2 = favImgs.get(1);
+            SecondArtist.setIcon(ii2);
+            jLabelSecond.setText(namesList.get(1));
+        }
+        if(favImgs.size()>2){
+            ImageIcon ii = favImgs.get(0);
+            ImageIcon ii2 = favImgs.get(1);
+            ImageIcon ii3 = favImgs.get(2);
+            FirstArtist.setIcon(ii);
+            SecondArtist.setIcon(ii2);
+            ThirdArtist.setIcon(ii3);
+            jLabelFirst.setText(namesList.get(0));
+            jLabelSecond.setText(namesList.get(1));
+            jLabelThird.setText(namesList.get(2));
+        }
     }
     
     /**
@@ -78,6 +110,12 @@ public class UserView extends javax.swing.JFrame {
         btnAddFav = new javax.swing.JButton();
         btnListen = new javax.swing.JButton();
         jComboBoxSongs = new javax.swing.JComboBox<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTxtAreaFav = new javax.swing.JTextArea();
@@ -162,6 +200,24 @@ public class UserView extends javax.swing.JFrame {
         jComboBoxSongs.setToolTipText("");
         jComboBoxSongs.setMaximumSize(new java.awt.Dimension(72, 25));
         jPanel1.add(jComboBoxSongs, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 160, -1));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane3.setViewportView(jTextArea1);
+
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 190, 110));
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane4.setViewportView(jTextArea2);
+
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 210, 80));
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jScrollPane5.setViewportView(jTextArea3);
+
+        jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
 
         jTabbedPane1.addTab("Home", jPanel1);
 
@@ -290,25 +346,25 @@ public class UserView extends javax.swing.JFrame {
             }
         }
         
-       
-                
+          
         Song fullSong = APISearch.getSelectedSongInfo(request, (int) selectedIndex); 
-        mySongs.add(fullSong);
         
+        // create list with song info name - artist
         String newSong = fullSong.getSongInfo();
         userPlaylist.addSong(newSong);
         
+        
         // Create a list with the links to the added songs
         String newLink = fullSong.getSongLink();
-        String newImg = fullSong.getSongImg();
-        
         userLinks.addSong(newLink);
         
-        userImgs.addSong(newImg);
+        
        
         jTxtAreaPList.setText(userPlaylist.toString());
         
         String newID = fullSong.getArtistID();
+        ImageIcon imgAdd = fullSong.getArtist().getImage();
+        fullArtistList.addSong(newID);
         
         int newCount = 1;
         int index = artistList.compareID(newID);
@@ -319,51 +375,60 @@ public class UserView extends javax.swing.JFrame {
         else{
             artistList.addSong(newID);
             artistCounts.addCount(newCount);
+            favImgs.add(imgAdd);
+            namesList.addSong(fullSong.getArtistName());
         }
+        
+        // sets the top artist tab
+        reOrder();
+        jTextArea1.setText(artistCounts.toString());
+        jTextArea2.setText(artistList.toString());
+        jTextArea3.setText(namesList.toString());
         
 
-        Artist a = fullSong.getArtist();
-        
-        if (mySongs.size() == 1){
-            ImageIcon ii = mySongs.get(0).getArtist().getImage();
-            FirstArtist.setIcon(ii);
-            jLabelFirst.setText(mySongs.get(0).getArtistName());
-        }
-        else if (mySongs.size() == 2){
-            ImageIcon ii = mySongs.get(0).getArtist().getImage();
-            FirstArtist.setIcon(ii);
-            jLabelFirst.setText(mySongs.get(0).getArtistName());
-            ImageIcon ii2 = mySongs.get(1).getArtist().getImage();
-            SecondArtist.setIcon(ii2);
-            jLabelSecond.setText(mySongs.get(1).getArtistName());
-        }
-        if(mySongs.size()>2){
-            ImageIcon ii = mySongs.get(0).getArtist().getImage();
-            ImageIcon ii2 = mySongs.get(1).getArtist().getImage();
-            ImageIcon ii3 = mySongs.get(2).getArtist().getImage();
-            FirstArtist.setIcon(ii);
-            SecondArtist.setIcon(ii2);
-            ThirdArtist.setIcon(ii3);
-            jLabelFirst.setText(mySongs.get(0).getArtistName());
-            jLabelSecond.setText(mySongs.get(1).getArtistName());
-            jLabelThird.setText(mySongs.get(2).getArtistName());
-        }
         setModel(userPlaylist, jComboBoxSongs);
         
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         int selectedIndex = jComboBoxSongs.getSelectedIndex();
+        
+        
         if (selectedIndex < userPlaylist.getSize() && selectedIndex >= 0){
-            //int selectedIndex = jComboBoxSongs.getSelectedIndex();
-            mySongs.remove(selectedIndex);
             userPlaylist.removeSong(selectedIndex);
             userLinks.removeSong(selectedIndex);
             jTxtAreaPList.setText(userPlaylist.toString());
+            
+            String compare = fullArtistList.get(selectedIndex);
+        
+            int index = artistList.compareID(compare);
+
+            if (index != -1){
+                if(artistCounts.get(index) == 1){
+                    artistCounts.removeCount(index);
+                    namesList.removeSong(index);
+                    favImgs.remove(index);
+                    artistList.removeSong(index);
+                }
+                else{
+                    artistCounts.decreaseCount(index);
+                }  
+            }
+            else{
+
+            }
+            
         }else{
             JOptionPane.showMessageDialog(null, "Invalid Song", "Invalid", JOptionPane.ERROR_MESSAGE);
         }
         setModel(userPlaylist, jComboBoxSongs);
+        
+        // sets the top artist tab
+        reOrder();
+        jTextArea1.setText(artistCounts.toString());
+        jTextArea2.setText(artistList.toString());
+        jTextArea3.setText(namesList.toString());
+        
         
     }//GEN-LAST:event_btnRemoveActionPerformed
 
@@ -474,7 +539,13 @@ public class UserView extends javax.swing.JFrame {
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextArea jTxtAreaFav;
     private javax.swing.JTextArea jTxtAreaPList;
