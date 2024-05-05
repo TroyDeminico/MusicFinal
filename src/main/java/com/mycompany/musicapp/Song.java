@@ -65,11 +65,7 @@ public class Song {
         String ID = Integer.toString(this.artist.getID());
         return ID;
      }
-//    
-//    public String getArtistInfo(){
-//        return this.artist.toString();
-//    }
-//    
+ 
    public Artist getArtist(){
        return artist;
    }

@@ -57,7 +57,6 @@ public class APISearch {
 
             if (Songs != null) {
                 for (Song song : Songs) {
-                    System.out.println(song.getSongInfo()); // makes json a string
                      resultList.add(song.getSongInfo()+ "\n");
                 }
             } else {

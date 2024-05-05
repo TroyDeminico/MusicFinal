@@ -15,9 +15,9 @@ import javax.swing.JComboBox;
 
 /**
  *
- * @author troydeminico
+ * @author troydeminico\
  */
-public class UserView extends javax.swing.JFrame {
+public class melodyMaker extends javax.swing.JFrame {
     
     //SongHashMap test = new SongHashMap();
     
@@ -26,8 +26,6 @@ public class UserView extends javax.swing.JFrame {
     Playlist userLinks = new Playlist();
     Playlist favLinks = new Playlist();
     Playlist fullArtistList = new Playlist();
-    
-    //Playlist favImgs = new Playlist();
     List testList = new ArrayList<String>();
     
     //for top artist
@@ -84,7 +82,7 @@ public class UserView extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public UserView() {
+    public melodyMaker() {
         initComponents(); 
     }
 
@@ -110,12 +108,6 @@ public class UserView extends javax.swing.JFrame {
         btnAddFav = new javax.swing.JButton();
         btnListen = new javax.swing.JButton();
         jComboBoxSongs = new javax.swing.JComboBox<>();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTxtAreaFav = new javax.swing.JTextArea();
@@ -135,6 +127,7 @@ public class UserView extends javax.swing.JFrame {
         jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(90, 90, 90));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -201,24 +194,6 @@ public class UserView extends javax.swing.JFrame {
         jComboBoxSongs.setMaximumSize(new java.awt.Dimension(72, 25));
         jPanel1.add(jComboBoxSongs, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 160, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane3.setViewportView(jTextArea1);
-
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 190, 110));
-
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane4.setViewportView(jTextArea2);
-
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 210, 80));
-
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane5.setViewportView(jTextArea3);
-
-        jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
-
         jTabbedPane1.addTab("Home", jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(90, 90, 90));
@@ -278,16 +253,19 @@ public class UserView extends javax.swing.JFrame {
         ThirdArtist.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.add(ThirdArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 43, 147, 134));
 
-        jLabelFirst.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
+        jLabelFirst.setFont(new java.awt.Font("Gurmukhi MN", 0, 18)); // NOI18N
         jLabelFirst.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelFirst.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel3.add(jLabelFirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 195, 147, 28));
 
-        jLabelSecond.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
+        jLabelSecond.setFont(new java.awt.Font("Gurmukhi MN", 0, 18)); // NOI18N
         jLabelSecond.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelSecond.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel3.add(jLabelSecond, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 195, 147, 28));
 
-        jLabelThird.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
+        jLabelThird.setFont(new java.awt.Font("Gurmukhi MN", 0, 18)); // NOI18N
         jLabelThird.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelThird.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel3.add(jLabelThird, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 195, 147, 28));
 
         jTabbedPane1.addTab("Top Artist", jPanel3);
@@ -303,7 +281,7 @@ public class UserView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
                 .addContainerGap())
@@ -331,7 +309,7 @@ public class UserView extends javax.swing.JFrame {
             }
         
             selectedValue = JOptionPane.showInputDialog(null,
-             "Choose one", "Song Choice",
+             "Choose Your Song", "Song Choice",
              JOptionPane.INFORMATION_MESSAGE, null,
              possibleValues, possibleValues[0]);
         }
@@ -346,48 +324,43 @@ public class UserView extends javax.swing.JFrame {
             }
         }
         
-          
-        Song fullSong = APISearch.getSelectedSongInfo(request, (int) selectedIndex); 
-        
-        // create list with song info name - artist
-        String newSong = fullSong.getSongInfo();
-        userPlaylist.addSong(newSong);
-        
-        
-        // Create a list with the links to the added songs
-        String newLink = fullSong.getSongLink();
-        userLinks.addSong(newLink);
-        
-        
-       
-        jTxtAreaPList.setText(userPlaylist.toString());
-        
-        String newID = fullSong.getArtistID();
-        ImageIcon imgAdd = fullSong.getArtist().getImage();
-        fullArtistList.addSong(newID);
-        
-        int newCount = 1;
-        int index = artistList.compareID(newID);
-        
-        if (index != -1){
-            artistCounts.increaseCount(index);
-        }
-        else{
-            artistList.addSong(newID);
-            artistCounts.addCount(newCount);
-            favImgs.add(imgAdd);
-            namesList.addSong(fullSong.getArtistName());
-        }
-        
-        // sets the top artist tab
-        reOrder();
-        jTextArea1.setText(artistCounts.toString());
-        jTextArea2.setText(artistList.toString());
-        jTextArea3.setText(namesList.toString());
-        
+        if (selectedIndex != -1) {  
+            Song fullSong = APISearch.getSelectedSongInfo(request, (int) selectedIndex); 
 
-        setModel(userPlaylist, jComboBoxSongs);
-        
+            // create list with song info name - artist
+            String newSong = fullSong.getSongInfo();
+            userPlaylist.addSong(newSong);
+
+
+            // Create a list with the links to the added songs
+            String newLink = fullSong.getSongLink();
+            userLinks.addSong(newLink);
+
+
+
+            jTxtAreaPList.setText(userPlaylist.toString());
+
+            String newID = fullSong.getArtistID();
+            ImageIcon imgAdd = fullSong.getArtist().getImage();
+            fullArtistList.addSong(newID);
+
+            int newCount = 1;
+            int index = artistList.compareID(newID);
+
+            if (index != -1){
+                artistCounts.increaseCount(index);
+            }
+            else{
+                artistList.addSong(newID);
+                artistCounts.addCount(newCount);
+                favImgs.add(imgAdd);
+                namesList.addSong(fullSong.getArtistName());
+            }
+
+            // sets the top artist tab
+            reOrder();
+            setModel(userPlaylist, jComboBoxSongs);
+        }
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
@@ -425,9 +398,6 @@ public class UserView extends javax.swing.JFrame {
         
         // sets the top artist tab
         reOrder();
-        jTextArea1.setText(artistCounts.toString());
-        jTextArea2.setText(artistList.toString());
-        jTextArea3.setText(namesList.toString());
         
         
     }//GEN-LAST:event_btnRemoveActionPerformed
@@ -496,21 +466,23 @@ public class UserView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UserView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(melodyMaker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UserView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(melodyMaker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UserView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(melodyMaker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UserView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(melodyMaker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UserView().setVisible(true);
+                new melodyMaker().setVisible(true);
             }
         });
     }
@@ -539,13 +511,7 @@ public class UserView extends javax.swing.JFrame {
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextArea jTxtAreaFav;
     private javax.swing.JTextArea jTxtAreaPList;
