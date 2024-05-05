@@ -57,6 +57,10 @@ public class melodyMaker extends javax.swing.JFrame {
             ImageIcon ii = favImgs.get(0);
             FirstArtist.setIcon(ii);
             jLabelFirst.setText(namesList.get(0));
+            SecondArtist.setIcon(null);
+            jLabelSecond.setText(null);
+            ThirdArtist.setIcon(null);
+            jLabelThird.setText(null);
         }
         else if (favImgs.size() == 2){
             ImageIcon ii = favImgs.get(0);
@@ -65,8 +69,10 @@ public class melodyMaker extends javax.swing.JFrame {
             ImageIcon ii2 = favImgs.get(1);
             SecondArtist.setIcon(ii2);
             jLabelSecond.setText(namesList.get(1));
+            ThirdArtist.setIcon(null);
+            jLabelThird.setText(null);
         }
-        if(favImgs.size()>2){
+        else if(favImgs.size()>2){
             ImageIcon ii = favImgs.get(0);
             ImageIcon ii2 = favImgs.get(1);
             ImageIcon ii3 = favImgs.get(2);
@@ -76,6 +82,10 @@ public class melodyMaker extends javax.swing.JFrame {
             jLabelFirst.setText(namesList.get(0));
             jLabelSecond.setText(namesList.get(1));
             jLabelThird.setText(namesList.get(2));
+        }
+        else if (favImgs.isEmpty()){
+            FirstArtist.setIcon(null);
+            jLabelFirst.setText(null);
         }
     }
     
@@ -283,7 +293,7 @@ public class melodyMaker extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -360,6 +370,7 @@ public class melodyMaker extends javax.swing.JFrame {
             // sets the top artist tab
             reOrder();
             setModel(userPlaylist, jComboBoxSongs);
+
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -373,6 +384,7 @@ public class melodyMaker extends javax.swing.JFrame {
             jTxtAreaPList.setText(userPlaylist.toString());
             
             String compare = fullArtistList.get(selectedIndex);
+            fullArtistList.removeSong(selectedIndex);
         
             int index = artistList.compareID(compare);
 
@@ -398,7 +410,7 @@ public class melodyMaker extends javax.swing.JFrame {
         
         // sets the top artist tab
         reOrder();
-        
+            
         
     }//GEN-LAST:event_btnRemoveActionPerformed
 
