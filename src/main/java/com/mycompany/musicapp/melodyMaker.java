@@ -143,14 +143,14 @@ public class melodyMaker extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTxtAreaPList.setEditable(false);
-        jTxtAreaPList.setBackground(new java.awt.Color(190, 190, 190));
+        jTxtAreaPList.setBackground(new java.awt.Color(230, 230, 230));
         jTxtAreaPList.setColumns(20);
         jTxtAreaPList.setRows(5);
         jScrollPane1.setViewportView(jTxtAreaPList);
         jTxtAreaPList.getAccessibleContext().setAccessibleName("");
         jTxtAreaPList.getAccessibleContext().setAccessibleDescription("");
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 320, 152));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 320, 200));
 
         btnRemove.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
         btnRemove.setText("Remove");
@@ -163,13 +163,18 @@ public class melodyMaker extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Song");
+        jLabel1.setText("Song/Artist");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 64, -1));
 
         songName.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
-        songName.setText("Song name");
+        songName.setText("Song or Artist name");
         songName.setMinimumSize(new java.awt.Dimension(2147483647, 2147483647));
-        jPanel1.add(songName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 270, -1));
+        songName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                songNameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(songName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 240, -1));
 
         btnAdd.setFont(new java.awt.Font("Gurmukhi MN", 0, 12)); // NOI18N
         btnAdd.setText("Search");
@@ -210,6 +215,7 @@ public class melodyMaker extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTxtAreaFav.setEditable(false);
+        jTxtAreaFav.setBackground(new java.awt.Color(230, 230, 230));
         jTxtAreaFav.setColumns(20);
         jTxtAreaFav.setRows(5);
         jScrollPane2.setViewportView(jTxtAreaFav);
@@ -293,7 +299,7 @@ public class melodyMaker extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -441,7 +447,7 @@ public class melodyMaker extends javax.swing.JFrame {
         int selectedIndex = jComboBoxFavs.getSelectedIndex();
        
         if (selectedIndex < 0 || selectedIndex > favPlaylist.getSize()){
-            JOptionPane.showMessageDialog(null, "Invalid number", "Invalid", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Invalid Song", "Invalid", JOptionPane.ERROR_MESSAGE);
         }
         else{
             favPlaylist.removeSong(selectedIndex);
@@ -460,6 +466,10 @@ public class melodyMaker extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Invalid Song", "Invalid", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnFavListenActionPerformed
+
+    private void songNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_songNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_songNameActionPerformed
 
     /**
      * @param args the command line arguments
