@@ -19,14 +19,12 @@ import javax.swing.JComboBox;
  */
 public class melodyMaker extends javax.swing.JFrame {
     
-    //SongHashMap test = new SongHashMap();
-    
     Playlist userPlaylist = new Playlist();
     Playlist favPlaylist = new Playlist();
     Playlist userLinks = new Playlist();
     Playlist favLinks = new Playlist();
     Playlist fullArtistList = new Playlist();
-    List testList = new ArrayList<String>();
+    List resultsList = new ArrayList<String>();
     
     //for top artist
     Playlist namesList = new Playlist();
@@ -42,6 +40,8 @@ public class melodyMaker extends javax.swing.JFrame {
         }
     }
     
+    
+    //What changes the combo box that is selected
     private void setModel(Playlist playlist, JComboBox<String> jComboBox){
         String[] songs = new String[playlist.getSize()]; 
         for (int i = 0; i < playlist.getSize(); i++) {
@@ -51,6 +51,7 @@ public class melodyMaker extends javax.swing.JFrame {
         jComboBox.setModel(aModel);
     }
     
+    //How the images and text in the top artist is all set
     private void reOrder(){
         artistCounts.reorderListsFromGreatestToLeast(artistList, favImgs, namesList);
         if (favImgs.size() == 1){
@@ -313,17 +314,17 @@ public class melodyMaker extends javax.swing.JFrame {
         if (hasSpace) {
             request = request.replace(" ", "%20");
                     }
-        
-        testList = APISearch.searchSong(request);
+        //How the user chooses which song they want based on their request
+        resultsList = APISearch.searchSong(request);
         Object[] possibleValues = null;
         int selectedIndex = -1;
         
-        if (testList != null && !testList.isEmpty()) {
-            possibleValues = new Object[testList.size()];
-            for (int i = 0; i < testList.size(); i++) {
-                possibleValues[i] = testList.get(i);
+        if (resultsList != null && !resultsList.isEmpty()) {
+            possibleValues = new Object[resultsList.size()];
+            for (int i = 0; i < resultsList.size(); i++) {
+                possibleValues[i] = resultsList.get(i);
             }
-        
+        // displays the songs that appear with users search term (song/artist name)
             selectedValue = JOptionPane.showInputDialog(null,
              "Choose Your Song", "Song Choice",
              JOptionPane.INFORMATION_MESSAGE, null,
@@ -340,19 +341,16 @@ public class melodyMaker extends javax.swing.JFrame {
             }
         }
         
+        // if they choose a song and dont hit cancel or X this runs
         if (selectedIndex != -1) {  
             Song fullSong = APISearch.getSelectedSongInfo(request, (int) selectedIndex); 
 
-            // create list with song info name - artist
+            //updating the Gui and list
             String newSong = fullSong.getSongInfo();
             userPlaylist.addSong(newSong);
 
-
-            // Create a list with the links to the added songs
             String newLink = fullSong.getSongLink();
             userLinks.addSong(newLink);
-
-
 
             jTxtAreaPList.setText(userPlaylist.toString());
 
@@ -373,7 +371,7 @@ public class melodyMaker extends javax.swing.JFrame {
                 namesList.addSong(fullSong.getArtistName());
             }
 
-            // sets the top artist tab
+            // sets the top artist tab and combobox
             reOrder();
             setModel(userPlaylist, jComboBoxSongs);
 
@@ -381,9 +379,10 @@ public class melodyMaker extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
+        //returns the index of what the user has slected in combobox
         int selectedIndex = jComboBoxSongs.getSelectedIndex();
         
-        
+        //updates the list and gui
         if (selectedIndex < userPlaylist.getSize() && selectedIndex >= 0){
             userPlaylist.removeSong(selectedIndex);
             userLinks.removeSong(selectedIndex);
@@ -409,12 +408,13 @@ public class melodyMaker extends javax.swing.JFrame {
 
             }
             
-        }else{
+        }
+        // if user selects invalid song or empty list
+        else{
             JOptionPane.showMessageDialog(null, "Invalid Song", "Invalid", JOptionPane.ERROR_MESSAGE);
         }
+        //set the combobox and top artist
         setModel(userPlaylist, jComboBoxSongs);
-        
-        // sets the top artist tab
         reOrder();
             
         
@@ -422,6 +422,7 @@ public class melodyMaker extends javax.swing.JFrame {
 
     private void btnListenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListenActionPerformed
         int selectedIndex = jComboBoxSongs.getSelectedIndex();
+        // opens webpage to song in browser
         if (selectedIndex < userPlaylist.getSize() && selectedIndex >= 0){
             openWebpage(userLinks.get(selectedIndex));
         }else{
@@ -431,6 +432,7 @@ public class melodyMaker extends javax.swing.JFrame {
 
     private void btnAddFavActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFavActionPerformed
         int selectedIndex = jComboBoxSongs.getSelectedIndex();
+        // adds the song to the users favorites playlist
         if (selectedIndex < userPlaylist.getSize() && selectedIndex >= 0){
             favPlaylist.addSong(userPlaylist.get(selectedIndex));
             favLinks.addSong(userLinks.get(selectedIndex));
@@ -439,6 +441,7 @@ public class melodyMaker extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(null, "Invalid Song", "Invalid", JOptionPane.ERROR_MESSAGE);
         }
+        //updates the favorites combobox
         setModel(favPlaylist, jComboBoxFavs);
         
     }//GEN-LAST:event_btnAddFavActionPerformed
@@ -449,11 +452,13 @@ public class melodyMaker extends javax.swing.JFrame {
         if (selectedIndex < 0 || selectedIndex > favPlaylist.getSize()){
             JOptionPane.showMessageDialog(null, "Invalid Song", "Invalid", JOptionPane.ERROR_MESSAGE);
         }
+        // this will remove the song from the lists and update gui
         else{
             favPlaylist.removeSong(selectedIndex);
             favLinks.removeSong(selectedIndex);
             jTxtAreaFav.setText(favPlaylist.toString());
         }
+        //updates the favorites combobox
         setModel(favPlaylist, jComboBoxFavs);
             
     }//GEN-LAST:event_btnFavRemoveActionPerformed
